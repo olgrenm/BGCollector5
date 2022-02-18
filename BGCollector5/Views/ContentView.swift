@@ -13,10 +13,12 @@ struct ContentView: View {
     @State private var addViewShown = false
     let viewModel = ListViewModel()
     
-    @FetchRequest(
+    @SectionedFetchRequest(
+        sectionIdentifier: BGitemSort.default.section,
         sortDescriptors: BGitemSort.default.descriptors,
         animation: .default)
-    private var bgItems: FetchedResults<BGitem>
+    private var bgItems: SectionedFetchResults<String, BGitem>
+    
     @State private var selectedSort = BGitemSort.default
     @State private var searchTerm = ""
     var searchQuery: Binding<String> {
@@ -39,18 +41,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(bgItems) { bgItem in
-                    NavigationLink {
-                        AddBGitemView(bgItemId: bgItem.objectID)
-                    } label: {
-                        BGitemView(bgItem: bgItem)
+                ForEach(bgItems) { section in
+                    Section(header: Text(section.id)) {
+                        ForEach(section) { bgItem in
+                            NavigationLink {
+                                AddBGitemView(bgItemId: bgItem.objectID)
+                            } label: {
+                                BGitemView(bgItem: bgItem)
+                            }
+                        }
+                        .onDelete { indexSet in
+                            withAnimation {
+                                viewModel.deleteItem(
+                                    for: indexSet,
+                                       section: section,
+                                       viewContext: viewContext)
+                            }
+                        }
                     }
-                }
-                .onDelete { indexSet in
-                    viewModel.deleteItem(
-                        for: indexSet,
-                           section: bgItems,
-                           viewContext: viewContext)
                 }
             }
             .sheet(isPresented: $addViewShown) {
@@ -65,7 +73,9 @@ struct ContentView: View {
                         sorts: BGitemSort.sorts)
                     
                         .onChange(of: selectedSort) { _ in
-                            bgItems.sortDescriptors = selectedSort.descriptors
+                            let request = bgItems
+                            request.sectionIdentifier = selectedSort.section
+                            request.sortDescriptors = selectedSort.descriptors
                         }
                     Button {
                         addViewShown = true

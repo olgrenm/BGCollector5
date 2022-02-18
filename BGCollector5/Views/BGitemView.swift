@@ -28,6 +28,8 @@ struct BGitemView: View {
                 if !bgItem.isFault {
                     Text(bgItem.action)
                         .foregroundColor(.secondary)
+                    Text(bgItem.area)
+                        .foregroundColor(.secondary)
                     HStack {
                         Text(bgItem.location)
                         Spacer()
