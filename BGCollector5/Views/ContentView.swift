@@ -18,6 +18,23 @@ struct ContentView: View {
         animation: .default)
     private var bgItems: FetchedResults<BGitem>
     @State private var selectedSort = BGitemSort.default
+    @State private var searchTerm = ""
+    var searchQuery: Binding<String> {
+        Binding {
+            searchTerm
+        } set: { newValue in
+            searchTerm = newValue
+            
+            guard !newValue.isEmpty else {
+                bgItems.nsPredicate = nil
+                return
+            }
+            
+            bgItems.nsPredicate = NSPredicate(
+                format: "name contains[cd] %@",
+            newValue)
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -40,6 +57,7 @@ struct ContentView: View {
                 AddBGitemView()
             }
             .navigationTitle("BG Items")
+            .searchable(text: searchQuery)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     SortSelectionView(
