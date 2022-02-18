@@ -14,13 +14,10 @@ struct ContentView: View {
     let viewModel = ListViewModel()
     
     @FetchRequest(
-        sortDescriptors: [
-        NSSortDescriptor(
-            keyPath: \BGitem.area,
-            ascending: true)
-        ],
+        sortDescriptors: BGitemSort.default.descriptors,
         animation: .default)
     private var bgItems: FetchedResults<BGitem>
+    @State private var selectedSort = BGitemSort.default
     
     var body: some View {
         NavigationView {
@@ -35,12 +32,23 @@ struct ContentView: View {
                 .onDelete { indexSet in
                     viewModel.deleteItem(
                         for: indexSet,
-                        section: bgItems,
-                        viewContext: viewContext)
+                           section: bgItems,
+                           viewContext: viewContext)
                 }
             }
+            .sheet(isPresented: $addViewShown) {
+                AddBGitemView()
+            }
+            .navigationTitle("BG Items")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    SortSelectionView(
+                        selectedSortItem: $selectedSort,
+                        sorts: BGitemSort.sorts)
+                    
+                        .onChange(of: selectedSort) { _ in
+                            bgItems.sortDescriptors = selectedSort.descriptors
+                        }
                     Button {
                         addViewShown = true
                     } label: {
@@ -48,10 +56,6 @@ struct ContentView: View {
                     }
                 }
             }
-            .sheet(isPresented: $addViewShown) {
-                AddBGitemView()
-            }
-            .navigationTitle("BG Items")
         }
     }
 }

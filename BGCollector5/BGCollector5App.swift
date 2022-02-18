@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct BGCollector5App: App {
-    let persistenceManager = PersistenceManager.shared
+    // let persistenceManager = PersistenceManager.shared
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceManager.persistentContainer.viewContext)
+                .environment(\.managedObjectContext, PersistenceManager.shared.persistentContainer.viewContext)
                 .onAppear {
                     addTestBGitems()
                 }

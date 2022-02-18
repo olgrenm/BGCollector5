@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2725B8402795F90000739866 /* AddBGitemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725B83F2795F90000739866 /* AddBGitemView.swift */; };
+		277BAD3427BFDC9C008995B1 /* BGitemSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277BAD3327BFDC9C008995B1 /* BGitemSort.swift */; };
+		277BAD3627BFE644008995B1 /* SortSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277BAD3527BFE644008995B1 /* SortSelectionView.swift */; };
 		27F08FFC2795DE1200F9763A /* BGCollector5App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F08FFB2795DE1200F9763A /* BGCollector5App.swift */; };
 		27F08FFE2795DE1200F9763A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F08FFD2795DE1200F9763A /* ContentView.swift */; };
 		27F090002795DE1600F9763A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F08FFF2795DE1600F9763A /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		2725B83F2795F90000739866 /* AddBGitemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBGitemView.swift; sourceTree = "<group>"; };
+		277BAD3327BFDC9C008995B1 /* BGitemSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGitemSort.swift; sourceTree = "<group>"; };
+		277BAD3527BFE644008995B1 /* SortSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSelectionView.swift; sourceTree = "<group>"; };
 		27F08FF82795DE1200F9763A /* BGCollector5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BGCollector5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F08FFB2795DE1200F9763A /* BGCollector5App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGCollector5App.swift; sourceTree = "<group>"; };
 		27F08FFD2795DE1200F9763A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				27F090102795E7F600F9763A /* BGitemValues.swift */,
 				27F090152795E91500F9763A /* AddBGitemViewModel.swift */,
 				27F090172795EB6A00F9763A /* ListViewModel.swift */,
+				277BAD3327BFDC9C008995B1 /* BGitemSort.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				27F0901B2795ECCD00F9763A /* TypeView.swift */,
 				27F0901F2795EEC000F9763A /* BGitemView.swift */,
 				2725B83F2795F90000739866 /* AddBGitemView.swift */,
+				277BAD3527BFE644008995B1 /* SortSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +197,8 @@
 				27F0900F2795E26F00F9763A /* BGitem.swift in Sources */,
 				27F0900B2795DE7800F9763A /* Stash.xcdatamodeld in Sources */,
 				27F08FFE2795DE1200F9763A /* ContentView.swift in Sources */,
+				277BAD3427BFDC9C008995B1 /* BGitemSort.swift in Sources */,
+				277BAD3627BFE644008995B1 /* SortSelectionView.swift in Sources */,
 				2725B8402795F90000739866 /* AddBGitemView.swift in Sources */,
 				27F0901C2795ECCD00F9763A /* TypeView.swift in Sources */,
 				27F090162795E91500F9763A /* AddBGitemViewModel.swift in Sources */,
