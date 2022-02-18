@@ -1,7 +1,7 @@
 //
 //  BGitem.swift
 //  BGCollector5
-//
+//  for remote
 //  Created by Michael Olgren on 1/17/22.
 //
 
@@ -30,7 +30,7 @@ extension BGitem {
     static func generateTestBGitems(in context: NSManagedObjectContext) throws {
         let names = [
         "longsword +1",
-        "An Errand for Fuller 1/3",
+        "An Errand for Buller 1/3",
         "Viconia (NE clr, mace/sling)",
         "Shank (assassin)",
         "loot chest",
