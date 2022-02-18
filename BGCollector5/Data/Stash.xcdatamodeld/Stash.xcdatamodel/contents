@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BGitem" representedClassName="BGitem" syncable="YES">
+        <attribute name="action" attributeType="String"/>
+        <attribute name="area" attributeType="String"/>
+        <attribute name="isDone" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="location" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="reward" attributeType="String"/>
+        <attribute name="subArea" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="BGitem" positionX="-27" positionY="18" width="128" height="149"/>
+    </elements>
+</model>
