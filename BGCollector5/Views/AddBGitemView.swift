@@ -33,6 +33,8 @@ struct AddBGitemView: View {
                 Form {
                     VStack {
                         TextField("Name", text: $name, prompt: Text("Name"))
+                            .disableAutocorrection(true)
+                            .font(.title)
                         if nameError {
                             Text("Name is required")
                                 .foregroundColor(.red)
@@ -47,6 +49,7 @@ struct AddBGitemView: View {
                     }
                     VStack {
                         TextField("Area", text: $area, prompt: Text("Area"))
+                            .disableAutocorrection(true)
                         if areaError {
                             Text("Area is required")
                                 .foregroundColor(.red)
@@ -54,10 +57,26 @@ struct AddBGitemView: View {
                     }
                     VStack {
                         TextField("Action", text: $action, prompt: Text("Action"))
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .padding()
+                            .border(.secondary)
                         TextField("Location", text: $location, prompt: Text("Location"))
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .padding()
+                            .border(.secondary)
                         TextField("Sub-area", text: $subArea, prompt: Text("Sub-area"))
+                            .disableAutocorrection(true)
+                            .padding()
+                            .border(.secondary)
                         TextField("Reward", text: $reward, prompt: Text("Reward"))
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                            .padding()
+                            .border(.secondary)
                         Toggle("Done with item?", isOn: $isDone)
+                            .padding(.top)
                     }
                 }
                 
