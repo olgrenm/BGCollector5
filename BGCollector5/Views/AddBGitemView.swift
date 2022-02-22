@@ -45,7 +45,7 @@ struct AddBGitemView: View {
                             ForEach(types, id:\.self) {
                                 Text($0)
                             }
-                        } .pickerStyle(WheelPickerStyle())
+                        } .pickerStyle(SegmentedPickerStyle())
                     }
                     VStack {
                         TextField("Area", text: $area, prompt: Text("Area"))
