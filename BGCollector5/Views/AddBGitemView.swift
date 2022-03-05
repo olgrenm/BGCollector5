@@ -23,6 +23,11 @@ struct AddBGitemView: View {
     @State private var subArea = ""
     @State private var isDone = false
     
+    enum FocusField: Hashable {
+        case field
+    }
+    @FocusState private var focusedField: FocusField?
+    
     var bgItemId: NSManagedObjectID?
     let viewModel = AddBGitemViewModel()
     var types = ["buy", "battle", "companion", "find", "main", "quest"]
@@ -33,6 +38,12 @@ struct AddBGitemView: View {
                 Form {
                     VStack {
                         TextField("Name", text: $name, prompt: Text("Name"))
+                            .focused($focusedField, equals: .field)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                    self.focusedField = .field
+                                }
+                            }
                             .disableAutocorrection(true)
                             .font(.title)
                         if nameError {
